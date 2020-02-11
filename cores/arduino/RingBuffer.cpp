@@ -26,7 +26,7 @@ RingBuffer::RingBuffer( void )
     _iTail=0 ;
 }
 
-void RingBuffer::store_char( uint8_t c )
+bool RingBuffer::store_char( uint8_t c )
 {
   int i = (uint32_t)(_iHead + 1) % SERIAL_BUFFER_SIZE ;
 
@@ -38,6 +38,9 @@ void RingBuffer::store_char( uint8_t c )
   {
     _aucBuffer[_iHead] = c ;
     _iHead = i ;
+    return true;
   }
+
+  return false;
 }
 

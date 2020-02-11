@@ -25,7 +25,7 @@
 // using a ring buffer, in which head is the index of the location
 // to which to write the next incoming character and tail is the index of the
 // location from which to read.
-#define SERIAL_BUFFER_SIZE 128
+#define SERIAL_BUFFER_SIZE 4096
 
 class RingBuffer
 {
@@ -36,7 +36,7 @@ class RingBuffer
 
   public:
     RingBuffer( void ) ;
-    void store_char( uint8_t c ) ;
+    bool store_char( uint8_t c ) ;
 } ;
 
 #endif /* _RING_BUFFER_ */
